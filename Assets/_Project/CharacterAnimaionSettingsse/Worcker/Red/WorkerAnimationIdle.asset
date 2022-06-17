@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa285481ca6605478a5db0b001ccf72, type: 3}
+  m_Name: WorkerAnimationIdle
+  m_EditorClassIdentifier: 
+  _spritesUp:
+  - {fileID: 21300000, guid: d38d054b684c140459d8c65888377e01, type: 3}
+  - {fileID: 21300000, guid: e462aa27e4029b64daa910a8c3bb381d, type: 3}
+  - {fileID: 21300000, guid: d38d054b684c140459d8c65888377e01, type: 3}
+  _spritesDown:
+  - {fileID: 21300000, guid: e5f8c4f74c5a1344e83d9c22b84bc132, type: 3}
+  - {fileID: 21300000, guid: ab8ad7f55f0708d4898d18364c5b9ab4, type: 3}
+  - {fileID: 21300000, guid: e5f8c4f74c5a1344e83d9c22b84bc132, type: 3}
+  _spritesLeft:
+  - {fileID: 21300000, guid: ab42bb6999a95704f957af7fdcd297b0, type: 3}
+  - {fileID: 21300000, guid: d0dd2536ce3371d4c8680f7956864aaf, type: 3}
+  - {fileID: 21300000, guid: ab42bb6999a95704f957af7fdcd297b0, type: 3}
+  _spritesRight:
+  - {fileID: 21300000, guid: d84a99ec88a31ce4d959d06501bcb006, type: 3}
+  - {fileID: 21300000, guid: d07795e9290f9e94bb2573cd165799c4, type: 3}
+  - {fileID: 21300000, guid: d07795e9290f9e94bb2573cd165799c4, type: 3}
+  _duration: 0.4

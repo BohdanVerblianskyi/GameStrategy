@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f409c13fc0e86c34fa7f68aecdc3bad2, type: 3}
+  m_Name: WorkerAnimationWalk
+  m_EditorClassIdentifier: 
+  _spritesUp:
+  - {fileID: 21300000, guid: e462aa27e4029b64daa910a8c3bb381d, type: 3}
+  - {fileID: 21300000, guid: 0d5a7e0aa86779744ae70d4aa9c05917, type: 3}
+  - {fileID: 21300000, guid: 6c015f9b3aa7938438986331c29147e6, type: 3}
+  - {fileID: 21300000, guid: 5366412da4c0cb24ba404f605de52d01, type: 3}
+  - {fileID: 21300000, guid: e462aa27e4029b64daa910a8c3bb381d, type: 3}
+  _spritesDown:
+  - {fileID: 21300000, guid: ab8ad7f55f0708d4898d18364c5b9ab4, type: 3}
+  - {fileID: 21300000, guid: 14ab9673d24ccb04086de638ee5ba824, type: 3}
+  - {fileID: 21300000, guid: 33f534576eebdb14a8a3dc59a56e14b8, type: 3}
+  - {fileID: 21300000, guid: b588b49bd92db4c489bfdad30bdb3f24, type: 3}
+  - {fileID: 21300000, guid: ab8ad7f55f0708d4898d18364c5b9ab4, type: 3}
+  _spritesLeft:
+  - {fileID: 21300000, guid: d0dd2536ce3371d4c8680f7956864aaf, type: 3}
+  - {fileID: 21300000, guid: f13432ba15362f741bf8e90d11509505, type: 3}
+  - {fileID: 21300000, guid: 948bac9183626ff4c92c01f8c57075c7, type: 3}
+  - {fileID: 21300000, guid: 360c1cbf1b1abd34495958a7db2f7c0a, type: 3}
+  - {fileID: 21300000, guid: d0dd2536ce3371d4c8680f7956864aaf, type: 3}
+  _spritesRight:
+  - {fileID: 21300000, guid: d07795e9290f9e94bb2573cd165799c4, type: 3}
+  - {fileID: 21300000, guid: b96c09dbd9c426e4ba71aff50131683b, type: 3}
+  - {fileID: 21300000, guid: 4c54e90c7b1c53a4bb2ad7895185f4bd, type: 3}
+  - {fileID: 21300000, guid: 62b0cdc86ae899a4a96c7867218213c0, type: 3}
+  - {fileID: 21300000, guid: d07795e9290f9e94bb2573cd165799c4, type: 3}
+  _duration: 0.25
