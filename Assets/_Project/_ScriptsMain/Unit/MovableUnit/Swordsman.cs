@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Project._ScriptsMain.Unit;
 using UnityEngine;
 
 public class Swordsman : Character
 {
-    public override void MoveBy(IInteractable interactable)
+    public override void Interact(IInteractable interactable)
+    {
+    }
+
+    public override void MoveTo(Vector2 position)
     {
     }
 
@@ -15,4 +20,5 @@ public class Swordsman : Character
     public override void StopMove()
     {
     }
+
 }

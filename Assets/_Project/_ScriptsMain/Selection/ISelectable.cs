@@ -6,6 +6,4 @@ public interface ISelectable
 
     public void Deselect();
 
-    public Rasa GetRasa();
-
 }

@@ -1,11 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public static class MyExtensions
 {
-    private const float DISTANCE_RAY = 100f;
-
     public static Direction GetDirection(this Vector2 direction)
     {
         if (Vector2.Angle(direction, Vector2.up) <= 45.0)
@@ -24,73 +21,6 @@ public static class MyExtensions
         {
             return Direction.Left;
         }
-    }
-
-    public static RaycastHit2D GetMouseRaycast(this RaycastHit2D raycastHit, Camera camera, LayerMask layerMask)
-    {
-        Ray ray = GetMouseRay(camera);
-        return Physics2D.GetRayIntersection(ray, DISTANCE_RAY, layerMask);
-    }
-
-    public static RaycastHit2D[] GetMouseRaycasts(this RaycastHit2D raycastHit, Camera camera)
-    {
-        Ray ray = GetMouseRay(camera);
-        return Physics2D.GetRayIntersectionAll(ray);
-    }
-
-    public static bool TryGetComoponentInMouseReycast<T>(this RaycastHit2D raycastHit, out T component)
-    {
-        Ray ray = GetMouseRay(Camera.main);
-        RaycastHit2D[] raycastHits2D = raycastHit.GetMouseRaycasts(Camera.main);
-
-        foreach (RaycastHit2D raycast in raycastHits2D)
-        {
-            if (raycast.collider.TryGetComponent(out T t))
-            {
-                component = t;
-                return true;
-            }
-        }
-
-        component = default;
-        return false;
-    }
-
-    public static bool TryGetComoponentInMouseReycast<T>(this RaycastHit raycastHit, out T component, LayerMask layerMask)
-    {
-        Ray ray = GetMouseRay(Camera.main);
-        if (Physics.Raycast(ray, out raycastHit, layerMask))
-        {
-            if (raycastHit.collider.TryGetComponent(out T t))
-            {
-                component = t;
-                return true;
-            }
-        }
-
-        component = default;
-        return false;
-    }
-
-    public static bool TryGetComoponentInMouseReycast<T>(this RaycastHit raycastHit, out T component)
-    {
-        Ray ray = GetMouseRay(Camera.main);
-        if (Physics.Raycast(ray, out raycastHit))
-        {
-            if (raycastHit.collider.TryGetComponent(out T t))
-            {
-                component = t;
-                return true;
-            }
-        }
-
-        component = default;
-        return false;
-    }
-
-    private static Ray GetMouseRay(Camera camera)
-    {
-        return camera.ScreenPointToRay(Input.mousePosition);
     }
 
     public static List<Vector2> GetPositionList(this List<Transform> transforms)
@@ -120,6 +50,36 @@ public static class MyExtensions
         }
 
         return closerPosition;
+    }
+
+    public static Vector2 ToWorldPosition(this Vector2 screenPosition, Camera camera)
+    {
+        return camera.ScreenToWorldPoint(screenPosition);
+    }
+
+    public static bool TryGetComponentFromRaycast<T>(this Ray ray, out  T component, LayerMask layerMask)
+    {
+        if (Physics.Raycast(ray, out RaycastHit raycastHit,layerMask))
+        {
+            return raycastHit.collider.TryGetComponent(out component);
+        }
+        component = default;
+        return false;
+    }
+
+    public static bool IsRaycastCollisionInLayer(this Ray ray, LayerMask layerMask)
+    {
+        return Physics.Raycast(ray,layerMask);
+    }
+    
+    public static bool TryGetComponentFromRaycast<T>(this Ray ray, out T component)
+    {
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        {
+            return raycastHit.collider.TryGetComponent(out component);
+        }
+        component = default;
+        return false;
     }
 
 }

@@ -5,12 +5,13 @@ using UnityEngine.AI;
 using System;
 
 
-public class CharacterMovment : MonoBehaviour
+public class UnitMovement : MonoBehaviour
 {
+    public event Action StartMoveEvent;
+    public event Action EndMoveEvent;
+    
     [SerializeField] protected NavMeshAgent _navMeshAgent;
-
-    public event Action onStartMoveEvent;
-    public event Action onEndMoveEvent;
+    
     private Vector2 _lastDirection;
     private State _state;
     private bool _moving;
@@ -29,15 +30,6 @@ public class CharacterMovment : MonoBehaviour
     {
         MovingCheck();
         ChangeState();
-        Vector2 temp = transform.position - _navMeshAgent.nextPosition;
-
-        Debug.Log(temp);
-
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(transform.position, _navMeshAgent.nextPosition);
     }
 
     private void MovingCheck()
@@ -55,7 +47,7 @@ public class CharacterMovment : MonoBehaviour
 
     public void Stop()
     {
-
+        _navMeshAgent.SetDestination(transform.position);
     }
 
     private void ChangeState()
@@ -65,12 +57,12 @@ public class CharacterMovment : MonoBehaviour
 
         if (beginMoving)
         {
-            onStartMoveEvent?.Invoke();
+            StartMoveEvent?.Invoke();
             _state = State.Move;
         }
         else if (endMoving)
         {
-            onEndMoveEvent?.Invoke();
+            EndMoveEvent?.Invoke();
             _state = State.Stand;
         }
     }
@@ -79,7 +71,7 @@ public class CharacterMovment : MonoBehaviour
 
     public Direction GetDirection() => _lastDirection.GetDirection();
 
-    public void GoTo(Vector2 position)
+    public void MoveTo(Vector2 position)
     {
         _navMeshAgent.SetDestination(position);
     }

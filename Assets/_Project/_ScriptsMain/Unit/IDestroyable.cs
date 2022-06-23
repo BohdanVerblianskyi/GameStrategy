@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IDestroyable 
+namespace _Project._ScriptsMain.Unit
 {
-    public void SetDamage(float damage);
-
+    public interface IDestroyable : IInteractable
+    {
+        public void SetDamage(float damage);
+    }
 }

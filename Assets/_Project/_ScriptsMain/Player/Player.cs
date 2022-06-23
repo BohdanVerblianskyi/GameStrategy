@@ -1,26 +1,30 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private BoxSelectionVisual _boxSelectionVisualPrefab;
+    [SerializeField] private LayerMask _selectionLayer;
     [SerializeField] private Rasa _rasa;
-    [SerializeField] private Selector _selector;
 
-    private void Update()
+    private Selector _selector;
+    private PlayingInput _playingInput;
+    private Camera _camera;
+    private MovableUnitController _movableUnitController;
+
+    private void Start()
     {
-        CheckInputRightMouseButton();
-        CheckInputLeftMouseButton();
-    }
+        _playingInput = new PlayingInput();
+        _playingInput.Enable();
 
-    private void CheckInputLeftMouseButton()
-    {
+        _camera = Camera.main;
 
-    }
-
-    private void CheckInputRightMouseButton()
-    {
-
+        _selector = new Selector(_playingInput, _camera, _selectionLayer);
+        _movableUnitController = new MovableUnitController(_selector, _playingInput);
+        var box = Instantiate(_boxSelectionVisualPrefab, transform);
+        box.Init(_playingInput,_camera);
     }
 }
